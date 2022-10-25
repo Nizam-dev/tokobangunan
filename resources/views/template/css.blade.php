@@ -10,5 +10,8 @@
 <!-- endinject -->
 <!-- Layout styles -->
 <link rel="stylesheet" href="{{asset('public/template/assets/css/style.css')}}">
+<link rel="stylesheet" href="{{asset('public/template/assets/css/dataTables.bootstrap4.min.css')}}">
 <!-- End layout styles -->
 <link rel="shortcut icon" href="{{asset('public/template/assets/images/favicon.png')}}" />
+
+@yield('css')

@@ -11,5 +11,29 @@
 <script src="{{asset('public/template/assets/js/misc.js')}}"></script>
 <!-- endinject -->
 <!-- Custom js for this page -->
-<script src="{{asset('public/template/assets/js/dashboard.js')}}"></script>
+<script src="{{asset('public/template/assets/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('public/template/assets/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('public/js/sweetalert.min.js')}}"></script>
+<!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+
+
+<!-- <script src="{{asset('public/template/assets/js/dashboard.js')}}"></script> -->
 <!-- End custom js for this page -->
+
+<script>
+    @if(session()->has('success'))
+        swal({
+            title: "Berhasil!",
+            text: "{{session()->get('success')}}",
+            icon: "success",
+        });
+@elseif(session()->has('Failed'))
+    swal({
+        title: "Failed!",
+        text: "{{session()->get('Failed')}}",
+        icon: "error",
+    });
+@endif
+</script>
+
+@yield('js')
