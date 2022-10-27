@@ -2,7 +2,7 @@
 
     <!-- Top Navigation -->
 
- 
+
 
     <!-- Main Navigation -->
 
@@ -11,27 +11,46 @@
             <div class="row">
                 <div class="col-lg-12 text-right">
                     <div class="logo_container">
-                        <a href="#">toko<span>bangunan</span></a>
+                        <a href="{{url('')}}">toko<span>bangunan</span></a>
                     </div>
                     <nav class="navbar">
                         <ul class="navbar_menu">
-                            <li><a href="#">home</a></li>
-                            <li><a href="#">shop</a></li>
+                            <li><a href="{{url('')}}">home</a></li>
                         </ul>
                         <ul class="navbar_user">
-                            
+
                             <li class="checkout">
-                                <a href="#">
+                                <a href="{{url('keranjang')}}">
                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                    <span id="checkout_items" class="checkout_items">2</span>
+                                    <span id="checkout_items" class="checkout_items">
+                                        @if(auth()->check())
+                                            {{App\Models\keranjang::where('user_id',auth()->user()->id)->count()}}
+                                        @else
+                                        @endif
+                                    </span>
                                 </a>
                             </li>
 
                             <li class="account">
                                 <a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
                                 <ul class="account_selection">
-                                    <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-                                    <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+                                    @if(auth()->check())
+                                    <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Account</a></li>
+                                    <li><a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                class="d-none">
+                                                @csrf
+                                            </form>
+                                            <i class="fa fa-sign-out" aria-hidden="true"></i>Logout
+                                        </a></li>
+
+                                    @else
+                                    <li><a href="{{url('login')}}"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign
+                                            In</a></li>
+                                    <li><a href="{{url('register')}}"><i class="fa fa-user-plus"
+                                                aria-hidden="true"></i>Register</a></li>
+                                    @endif
                                 </ul>
                             </li>
                         </ul>

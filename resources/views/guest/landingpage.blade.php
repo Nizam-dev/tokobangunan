@@ -67,10 +67,10 @@
                                 <h6 class="product_name"><a href="single.html">
                                     {{$barang->nama_barang}}
                                     </a></h6>
-                                <div class="product_price">Rp. {{$barang->harga}}</div>
+                                <div class="product_price">@currency($barang->harga)</div>
                             </div>
                         </div>
-                        <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                        <div class="red_button add_to_cart_button"><a href="{{url('barang/'.$barang->id)}}">Beli</a></div>
                     </div>
 
                     @endforeach

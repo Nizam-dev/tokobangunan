@@ -213,11 +213,13 @@ jQuery(document).ready(function($)
 			var plus = $('.plus');
 			var minus = $('.minus');
 			var value = $('#quantity_value');
+			var jumlah = $('#jumlah_value');
 
 			plus.on('click', function()
 			{
 				var x = parseInt(value.text());
 				value.text(x + 1);
+				jumlah.val(x + 1);
 			});
 
 			minus.on('click', function()
@@ -226,6 +228,7 @@ jQuery(document).ready(function($)
 				if(x > 1)
 				{
 					value.text(x - 1);
+					jumlah.val(x - 1);
 				}
 			});
 		}

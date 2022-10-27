@@ -15,8 +15,9 @@ class LandingPageController extends Controller
         return view('guest.landingpage',compact('barangs','kategori_barangs'));
     }
 
-    public function barang()
+    public function barang($id)
     {
-        return view('guest.barang');
+        $barang = barang::findOrFail($id);
+        return view('guest.barang',compact('barang'));
     }
 }
