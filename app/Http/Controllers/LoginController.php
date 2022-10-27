@@ -13,7 +13,7 @@ class LoginController extends Controller
     {
         if(Auth::check()){
             if(auth()->user()->role == "admin"){
-                return redirect("dashboard");
+                return redirect("barang-bangunan");
             }else{
                 return redirect("keranjang");
             }

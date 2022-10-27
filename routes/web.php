@@ -33,7 +33,8 @@ Auth::routes(['login'=>false,'register'=>false]);
 
 Route::middleware(['role:admin'])->group(function () {
 
-    Route::resource('produk',App\Http\Controllers\Admin\ProdukController::class);
+    Route::get('dashboard',[App\Http\Controllers\Admin\DashboardController::class,'index']);
+    // Route::resource('produk',App\Http\Controllers\Admin\ProdukController::class);
     Route::resource('kategori-barang',App\Http\Controllers\Admin\KategoriBarangController::class);
     Route::resource('stok-barang',App\Http\Controllers\Admin\StokBarangController::class);
     Route::resource('barang-bangunan',App\Http\Controllers\Admin\BarangController::class);
