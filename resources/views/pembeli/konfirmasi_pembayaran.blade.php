@@ -94,11 +94,12 @@
                                             <td>{{$keranjang->jumlah}}</td>
                                             <td>@currency($keranjang->jumlah * $keranjang->barang->harga)</td>
                                         </tr>
+                                       
+                                        @endforeach
                                         <tr class="bg-primary text-white">
                                             <td colspan="4"> Total Pembayaran </td>
                                             <td>@currency($total)</td>
                                         </tr>
-                                        @endforeach
                                     </tbody>
                                 </table>
 
