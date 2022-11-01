@@ -1,24 +1,19 @@
+<?php
+    $notif_pesanan = App\Models\transaksi::where('status','pembayaran')->get();
+?>
+
 <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.html"><img
-                src="{{asset('public/template/assets/images/logo.svg')}}" alt="logo" /></a>
+        <a class="navbar-brand brand-logo" href="#"><img src="{{asset('public/image/logo-dark-svg.svg')}}"
+                alt="logo" /></a>
         <a class="navbar-brand brand-logo-mini" href="index.html"><img
-                src="{{asset('public/template/assets/images/logo-mini.svg')}}" alt="logo" /></a>
+                src="{{asset('public/image/logo-mini-svg.svg')}}" alt="logo" /></a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="mdi mdi-menu"></span>
         </button>
-        <div class="search-field d-none d-xl-block">
-            <form class="d-flex align-items-center h-100" action="#">
-                <div class="input-group">
-                    <div class="input-group-prepend bg-transparent">
-                        <i class="input-group-text border-0 mdi mdi-magnify"></i>
-                    </div>
-                    <input type="text" class="form-control bg-transparent border-0" placeholder="Search products">
-                </div>
-            </form>
-        </div>
+
         <ul class="navbar-nav navbar-nav-right">
 
             <li class="nav-item dropdown">
@@ -31,44 +26,32 @@
                     aria-labelledby="notificationDropdown">
                     <h6 class="p-3 mb-0 bg-primary text-white py-4">Notifications</h6>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
+                    
+                    @forelse($notif_pesanan as $notif)
+                    <a class="dropdown-item preview-item" href="{{url('pesanan-barang')}}">
                         <div class="preview-thumbnail">
                             <div class="preview-icon bg-success">
-                                <i class="mdi mdi-calendar"></i>
+                                <i class="mdi mdi-cart"></i>
                             </div>
                         </div>
                         <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="preview-subject font-weight-normal mb-1">Event today</h6>
-                            <p class="text-gray ellipsis mb-0"> Just a reminder that you have an event today
+                            <h6 class="preview-subject font-weight-normal mb-1">{{$notif->updated_at->format('d/m/Y')}}</h6>
+                            <p class="text-gray ellipsis mb-0"> {{$notif->user->name}} Melakukan Pesanan
                             </p>
                         </div>
                     </a>
+                    @empty
+                    <p class="p-3 mb-0 text-center" >Tidak Ada Pesanan</p>
+                    @endforelse
+
+
+                    
+
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-warning">
-                                <i class="mdi mdi-settings"></i>
-                            </div>
-                        </div>
-                        <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="preview-subject font-weight-normal mb-1">Settings</h6>
-                            <p class="text-gray ellipsis mb-0"> Update dashboard </p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-info">
-                                <i class="mdi mdi-link-variant"></i>
-                            </div>
-                        </div>
-                        <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
-                            <h6 class="preview-subject font-weight-normal mb-1">Launch Admin</h6>
-                            <p class="text-gray ellipsis mb-0"> New admin wow! </p>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <h6 class="p-3 mb-0 text-center">See all notifications</h6>
+
+                    <h6 class="p-3 mb-0 text-center">
+                        <a href="{{url('pesanan-barang')}}" class="p-3 mb-0 text-center">Lihat Semua Pesanan</a>
+                    </h6>
                 </div>
             </li>
 
@@ -84,16 +67,16 @@
                 </a>
                 <div class="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm"
                     aria-labelledby="profileDropdown" data-x-placement="bottom-end">
-                   
+
                     <div class="p-2">
-                        
+
                         <a class="dropdown-item py-1 d-flex align-items-center justify-content-between"
                             href="javascript:void(0)">
                             <span>Profil</span>
                             <i class="mdi mdi-settings"></i>
                         </a>
                         <div role="separator" class="dropdown-divider"></div>
-                      
+
                         <a class="dropdown-item py-1 d-flex align-items-center justify-content-between"
                             href="{{ route('logout') }}"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

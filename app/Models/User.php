@@ -43,4 +43,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function alamat(){
+        return $this->hasOne(alamat::class)->with(['kecamatan_','desa_']);
+    }
 }

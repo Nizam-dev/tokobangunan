@@ -8,9 +8,9 @@
         <div class="row align-items-center fill_height">
             <div class="col">
                 <div class="main_slider_content">
-                    <h6>Toko Bangunan Murah Jaya</h6>
-                    <h1>Get up to 30% Off New Arrivals</h1>
-                    <div class="red_button shop_now_button"><a href="#">shop now</a></div>
+                    <h6>Toko Bangunan Dua Putra</h6>
+                    <h1>Selamat datang <h3>Silahkan melakukan pembelian</h3></h1>
+                    <div class="red_button shop_now_button"><a href="#allbarang">Beli Barang</a></div>
                 </div>
             </div>
         </div>
@@ -20,12 +20,12 @@
 
 <!-- New Arrivals -->
 
-<div class="new_arrivals">
+<div class="new_arrivals" id="allbarang">
     <div class="container">
         <div class="row">
             <div class="col text-center">
                 <div class="section_title new_arrivals_title">
-                    <h2>New Arrivals</h2>
+                    <h2>Barang Bangunan</h2>
                 </div>
             </div>
         </div>
@@ -93,8 +93,8 @@
                 <div class="benefit_item d-flex flex-row align-items-center">
                     <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
                     <div class="benefit_content">
-                        <h6>free shipping</h6>
-                        <p>Suffered Alteration in Some Form</p>
+                        <h6>pengiriman</h6>
+                        <p>Diantar Ketempat Tujuan</p>
                     </div>
                 </div>
             </div>
@@ -102,8 +102,8 @@
                 <div class="benefit_item d-flex flex-row align-items-center">
                     <div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
                     <div class="benefit_content">
-                        <h6>cach on delivery</h6>
-                        <p>The Internet Tend To Repeat</p>
+                        <h6>pembayaran</h6>
+                        <p>Pembayaran Online</p>
                     </div>
                 </div>
             </div>
@@ -111,8 +111,8 @@
                 <div class="benefit_item d-flex flex-row align-items-center">
                     <div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
                     <div class="benefit_content">
-                        <h6>45 days return</h6>
-                        <p>Making it Look Like Readable</p>
+                        <h6>pengembalian</h6>
+                        <p>Pengembalian Bila Rusak</p>
                     </div>
                 </div>
             </div>
@@ -120,8 +120,8 @@
                 <div class="benefit_item d-flex flex-row align-items-center">
                     <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
                     <div class="benefit_content">
-                        <h6>opening all week</h6>
-                        <p>8AM - 09PM</p>
+                        <h6>Buka Setiap Hari</h6>
+                        <p>8 Pagi - 5 Sore</p>
                     </div>
                 </div>
             </div>

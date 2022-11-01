@@ -13,4 +13,8 @@ class pembayaran extends Model
         'transaksi_id',
         'metode_pembayaran_id'
     ];
+ 
+    public function bank(){
+        return $this->belongsTo(metode_pembayaran::class,'metode_pembayaran_id');
+    }
 }

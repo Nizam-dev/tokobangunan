@@ -61,7 +61,10 @@
 
                                         <tr>
                                             <td>Alamat</td>
-                                            <td> : {{auth()->user()->no_hp}}</td>
+                                            <td> : {{auth()->user()->alamat->alamat}} ,
+                                            Desa {{auth()->user()->alamat->desa_->name}} ,
+                                            Kec. {{auth()->user()->alamat->kecamatan_->name}}
+                                            </td>
                                         </tr>
 
                                     </tbody>
@@ -70,7 +73,7 @@
 
 
                             <div class="col-md-12 mt-2">
-                                <h5>Pesanan</h5>
+                                <h5>Pesanan {{$keranjangs[0]->barang->status == "pre-order" ? "Pre-Order":""}} </h5>
 
                                 <table class="table table-striped">
                                     <thead>
@@ -103,6 +106,31 @@
                                     </tbody>
                                 </table>
 
+
+                            </div>
+
+                            <div class="col-md-12">
+                            <h5>Metode Pembayaran</h5>
+
+                            <form action="{{url('keranjang/bayar')}}" method="post">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="">Bank</label>
+                                    <select name="metode_pembayaran" class="form-control @error('metode_pembayaran') is-invalid @enderror">
+                                        <option disabled selected>--Pilih Bank--</option>
+                                        @foreach($banks as $bank)
+                                            <option  value="{{$bank->id}}">{{$bank->nama_bank}}</option>
+                                        @endforeach
+                                    </select>
+                              
+                                </div>
+
+                                @if($keranjangs[0]->barang->status == "pre-order")
+                                    <p class="mt-2 text-danger">"Barang yang anda pesan adalah barang Pre-Order , setelah melakukan pemesanan toko kami akan memberitahu anda etimasi barang akan dikirim</p>
+                                @endif
+
+                                <button type="submit" class="btn btn-sm btn-success float-right">Pembayaran</button>
+                            </form>
 
                             </div>
 

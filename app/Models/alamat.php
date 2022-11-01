@@ -15,4 +15,12 @@ class alamat extends Model
         'alamat',
         'user_id'
     ];
+
+    public function kecamatan_(){
+        return $this->belongsTo(kecamatan::class,'kecamatan');
+    }
+
+    public function desa_(){
+        return $this->belongsTo(desa::class,'desa');
+    }
 }

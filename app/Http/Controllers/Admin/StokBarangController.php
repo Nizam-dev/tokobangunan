@@ -19,7 +19,7 @@ class StokBarangController extends Controller
 
     public function create()
     {
-        $barangs = barang::all();
+        $barangs = barang::where('status','tersedia')->get();
         return view('admin.stok-barang.tambah',compact('barangs'));
     }
 

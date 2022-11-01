@@ -25,7 +25,7 @@
 
             <div class="breadcrumbs d-flex flex-row align-items-center">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{{url('')}}">Home</a></li>
                     <li class="active"><a href="index.html"><i class="fa fa-angle-right"
                                 aria-hidden="true"></i>Keranjang</a></li>
                 </ul>
@@ -33,19 +33,7 @@
 
             <!-- Sidebar -->
 
-            <div class="sidebar">
-                <div class="sidebar_section">
-                    <div class="sidebar_title">
-                        <h5>Akun</h5>
-                    </div>
-                    <ul class="sidebar_categories">
-                        <li class="active"><a href="{{url('keranjang')}}">Keranjang</a></li>
-                        <li><a href="{{url('pesanan')}}">Pesanan</a></li>
-                        <li><a href="{{url('histori-pesanan')}}">Histori Pemesanan</a></li>
-                        <li><a href="{{url('alamat')}}">Alamat</a></li>
-                    </ul>
-                </div>
-            </div>
+           @include('pembeli.sidebar')
 
             <!-- Main Content -->
 
@@ -74,6 +62,7 @@
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Nama Barang</th>
+                                            <th scope="col">Status</th>
                                             <th scope="col">Harga</th>
                                             <th scope="col">Jumlah</th>
                                             <th scope="col">Total</th>
@@ -86,6 +75,7 @@
                                             <tr>
                                                 <td>{{$loop->iteration}}</td>
                                                 <td>{{$keranjang->barang->nama_barang}}</td>
+                                                <td>{{$keranjang->barang->status}}</td>
                                                 <td>@currency($keranjang->barang->harga)</td>
                                                 <td>{{$keranjang->jumlah}}</td>
                                                 <td>@currency($keranjang->jumlah * $keranjang->barang->harga)</td>
@@ -95,7 +85,7 @@
                                             </tr>
                                             @empty
                                             <tr>
-                                                <td colspan="6" class="text-center" >Tidak Ada Barang</td>
+                                                <td colspan="7" class="text-center" >Tidak Ada Barang</td>
                                             </tr>
                                         @endforelse
                                     </tbody>

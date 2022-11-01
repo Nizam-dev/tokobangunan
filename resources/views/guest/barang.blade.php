@@ -66,9 +66,14 @@
 
 					<div class="product_price mt-2">@currency($barang->harga)</div>
 					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
-					<span>Satuan : {{$barang->satuan_barang}}</span>
+						<div class="col-md-12 px-0">
+							<span>Stok : {{ $barang->status == "pre-order" ? "-" : $barang->jumlah_barang}}</span>
+							<br>
+							<span>Satuan : {{$barang->satuan_barang}}</span>
 
-</div>
+						</div>
+
+					</div>
 				
 					<form action="{{url('tambahkeranjang')}}" method="post">
 						@csrf

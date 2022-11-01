@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-lg-12 text-right">
                     <div class="logo_container">
-                        <a href="{{url('')}}">toko<span>bangunan</span></a>
+                        <a href="{{url('')}}">toko<span>duaputra</span></a>
                     </div>
                     <nav class="navbar">
                         <ul class="navbar_menu">
@@ -35,7 +35,7 @@
                                 <a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
                                 <ul class="account_selection">
                                     @if(auth()->check())
-                                    <li><a href="{{ auth()->user()->role == 'admin' ? url('barang-bangunan') : url('keranjang') }}"><i class="fa fa-user" aria-hidden="true"></i>Account</a></li>
+                                    <li><a href="{{ auth()->user()->role == 'admin' ? url('dashboard') : url('keranjang') }}"><i class="fa fa-user" aria-hidden="true"></i>Account</a></li>
                                     <li><a href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST"

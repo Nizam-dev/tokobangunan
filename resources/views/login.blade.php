@@ -4,7 +4,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Connect Plus</title>
+    <title>Toko Bangunan Dua Putra</title>
+    
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('public/template/assets/vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('public/template/assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">
@@ -22,9 +23,8 @@
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left p-5">
                 <div class="brand-logo">
-                  <img src="{{asset('public/template/assets/images/logo-dark.svg')}}">
+                  <img src="{{asset('public/image/logo.png')}}" class="mx-auto d-block">
                 </div>
-                <h4>Hello! let's get started</h4>
                 <h6 class="font-weight-light">Sign in to continue.</h6>
                 <form class="pt-3" action="{{url('login')}}" method="post">
                     @csrf

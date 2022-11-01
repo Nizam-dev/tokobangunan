@@ -29,27 +29,16 @@
 
             <div class="breadcrumbs d-flex flex-row align-items-center">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active"><a href="index.html"><i class="fa fa-angle-right"
+                    <li><a href="{{url('')}}">Home</a></li>
+                    <li class="active"><a href="#"><i class="fa fa-angle-right"
                                 aria-hidden="true"></i>Alamat</a></li>
                 </ul>
             </div>
 
             <!-- Sidebar -->
 
-            <div class="sidebar">
-                <div class="sidebar_section">
-                    <div class="sidebar_title">
-                        <h5>Akun</h5>
-                    </div>
-                    <ul class="sidebar_categories">
-                        <li><a href="{{url('keranjang')}}">Keranjang</a></li>
-                        <li><a href="{{url('pesanan')}}">Pesanan</a></li>
-                        <li><a href="{{url('histori-pesanan')}}">Histori Pemesanan</a></li>
-                        <li class="active"><a href="{{url('alamat')}}">Alamat</a></li>
-                    </ul>
-                </div>
-            </div>
+            @include('pembeli.sidebar')
+
 
             <!-- Main Content -->
 
