@@ -1,6 +1,9 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
-        <li class="nav-item nav-category">Main</li>
+    <li class="nav-item nav-category">Main</li>
+        
+        @if(auth()->user()->role == 'admin')
+
         <li class="nav-item {{request()->is('dashboard') ? 'active' : '' }}">
             <a class="nav-link" href="{{url('dashboard')}}">
                 <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
@@ -44,6 +47,26 @@
         </li>
 
 
+
+
+
+
+        <li class="nav-item {{request()->is('/akun-bank/*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{url('akun-bank')}}">
+                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                <span class="menu-title">Akun Bank</span>
+            </a>
+        </li>
+
+        @elseif(auth()->user()->role == 'pemilik toko')
+
+        <li class="nav-item {{request()->is('dashboard') ? 'active' : '' }}">
+            <a class="nav-link" href="{{url('dashboard')}}">
+                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                <span class="menu-title">Dashboard</span>
+            </a>
+        </li>
+        
         <li
             class="nav-item {{request()->is('laporan-penjualan') || request()->is('laporan-transaksi')  ? 'active' : '' }} ">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic4" aria-expanded="false"
@@ -60,15 +83,7 @@
             </div>
         </li>
 
+        @endif
 
-
-
-        <li class="nav-item {{request()->is('/akun-bank/*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{url('akun-bank')}}">
-                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
-                <span class="menu-title">Akun Bank</span>
-            </a>
-        </li>
-
-
+    </ul>
 </nav>

@@ -37,13 +37,22 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$data->user->name}}</td>
                                 <td>
+                                    @if($data->pesanan[0]->barang->status == "pre-order")
+                                    <h6>- Pre-Order</h6>
+                                    @endif
                                     <ul>
                                     @foreach($data->pesanan as $pesanan)
                                     <li>{{$pesanan->barang->nama_barang}} ( {{$pesanan->jumlah}} {{$pesanan->barang->satuan_barang}} )</li>
                                     @endforeach
                                     </ul>
                                 </td>
-                                <td>@currency($data->total)</td>
+                                <td>
+                                  @currency($data->total)
+                                  <br>
+                                  @if($data->pesanan[0]->barang->status == "pre-order")
+                                  <span class="badge badge-warning">Minimal DP : @currency($data->total * 40/100)</span>
+                                  @endif
+                                </td>
                                 <td>
                                     <img onClick="viewImage(this)" src="{{asset('public/image/bukti_pembayaran/'.$data->pembayaran->bukti_pembayaran)}}" alt="" srcset="">
                                 </td>
@@ -138,6 +147,11 @@
             <div class="form-group">
                 <label for="">Etimasi Barang Dikirim</label>
                 <input type="date" class="form-control" name="etimasi_dikirim" required> 
+            </div>
+
+            <div class="form-group">
+                <label for="">Pembayaran Diterima</label>
+                <input type="number" class="form-control" name="total_bayar" required> 
             </div>
             `)
         }

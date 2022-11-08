@@ -21,11 +21,13 @@ class PesananController extends Controller
             $transaksi->update([
                 "status"=>"diproses",
                 "etimasi_ready"=>$request->etimasi_ready,
-                "etimasi_dikirim"=>$request->etimasi_dikirim
+                "etimasi_dikirim"=>$request->etimasi_dikirim,
+                "total_bayar"=>$request->total_bayar
             ]);
         }else{
             $transaksi->update([
                 "status"=>"diproses",
+                "total_bayar"=>$transaksi->total
             ]);
         }
         return redirect()->back()->with("success","Pembayaran diterima");

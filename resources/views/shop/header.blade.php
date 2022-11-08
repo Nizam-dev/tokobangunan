@@ -35,7 +35,7 @@
                                 <a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
                                 <ul class="account_selection">
                                     @if(auth()->check())
-                                    <li><a href="{{ auth()->user()->role == 'admin' ? url('dashboard') : url('keranjang') }}"><i class="fa fa-user" aria-hidden="true"></i>Account</a></li>
+                                    <li><a href="{{ auth()->user()->role == 'admin' || auth()->user()->role == 'pemilik toko' ? url('dashboard') : url('keranjang') }}"><i class="fa fa-user" aria-hidden="true"></i>Account</a></li>
                                     <li><a href="{{ route('logout') }}"
                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST"

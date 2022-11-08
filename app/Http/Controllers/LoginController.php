@@ -12,7 +12,7 @@ class LoginController extends Controller
     public function index()
     {
         if(Auth::check()){
-            if(auth()->user()->role == "admin"){
+            if(auth()->user()->role == "admin" || auth()->user()->role == "pemilik toko"){
                 return redirect("dashboard");
             }else{
                 return redirect("keranjang");
@@ -37,7 +37,7 @@ class LoginController extends Controller
             return redirect()->back()->with('failed','Email Tidak ditemukan');
         }
         if(Auth::attempt($login)){
-            if(auth()->user()->role == "admin"){
+            if(auth()->user()->role == "admin" || auth()->user()->role == "pemilik toko"){
                 return redirect("dashboard");
 
             }else{

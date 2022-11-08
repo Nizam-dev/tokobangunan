@@ -57,6 +57,12 @@
                                             <td>Total Pembayaran</td>
                                             <td>: @currency($transaksi->total)</td>
                                         </tr>
+                                        @if($transaksi->pesanan[0]->barang->status == "pre-order")
+                                        <tr class="bg-warning text-white">
+                                            <td> Minimal Pembayaran Pre-Order 40% </td>
+                                            <td>: @currency($transaksi->total * 40 / 100)</td>
+                                        </tr>
+                                        @endif
 
                                     </tbody>
                                 </table>
@@ -81,7 +87,7 @@
                                     <input type="file" class="form-control" name="bukti_pembayaran" accept="image/*">
                                 </div>
                                 @if($transaksi->pesanan[0]->barang->status == "pre-order")
-                                    <p class="mt-2 text-danger">"Barang yang anda pesan adalah barang Pre-Order , setelah melakukan pemesanan toko kami akan memberitahu anda etimasi barang akan dikirim</p>
+                                    <p class="mt-2 text-danger">"Barang yang anda pesan adalah barang Pre-Order Anda wajib melakukan pembayaran / DP minimal 40 % atau lebih, setelah melakukan pemesanan toko kami akan memberitahu anda etimasi barang akan dikirim</p>
                                 @endif
 
                                 <button type="submit" class="btn btn-sm btn-success float-right">Unggah Pembayaran</button>

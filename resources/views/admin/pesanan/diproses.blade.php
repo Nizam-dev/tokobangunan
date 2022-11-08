@@ -14,7 +14,7 @@
 @endsection
 
 @php( $fields = ['No','Nama','Barang','Alamat','No Hp','Selesai'] )
-@php( $fields2 = ['No','Nama','Barang','Alamat','No Hp','Etimasi','Selesai'] )
+@php( $fields2 = ['No','Nama','Barang','Alamat','No Hp','Etimasi', 'Sisa Pembayaran' ,'Selesai'] )
 @section('content')
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -44,10 +44,11 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php($n = 1)
                             @foreach($datas as $data)
                             @if($data->etimasi_ready == null))
                             <tr>
-                                <td>{{$loop->iteration}}</td>
+                                <td>{{$n++}}</td>
                                 <td>{{$data->user->name}}</td>
                                 <td>
                                     <ul>
@@ -96,8 +97,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($datas as $data)
                             @php($no=1)
+                            @foreach($datas as $data)
                             @if($data->etimasi_ready != null))
                             <tr>
                                 <td>{{$no++}}</td>
@@ -124,6 +125,9 @@
                                     Etimasi Ready {{$data->etimasi_ready}}
                                     <br>
                                     Etimasi Dikirim {{$data->etimasi_dikirim}}
+                                </td>
+                                <td>
+                                    @currency($data->total - $data->total_bayar)
                                 </td>
                                 <td>
                                     <a href="{{url('pesanan-proses/'.$data->id)}}" class="btn btn-sm btn-success">Selesai</a>

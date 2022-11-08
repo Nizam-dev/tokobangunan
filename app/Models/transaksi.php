@@ -16,6 +16,7 @@ class transaksi extends Model
         'user_id',
         'etimasi_ready',
         'etimasi_dikirim',
+        'total_bayar'
     ];
 
     public static function laporan_transaksi()

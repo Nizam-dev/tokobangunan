@@ -33,7 +33,6 @@ Auth::routes(['login'=>false,'register'=>false]);
 
 Route::middleware(['role:admin'])->group(function () {
 
-    Route::get('dashboard',[App\Http\Controllers\Admin\DashboardController::class,'index']);
     // Route::resource('produk',App\Http\Controllers\Admin\ProdukController::class);
     Route::resource('kategori-barang',App\Http\Controllers\Admin\KategoriBarangController::class);
     Route::resource('stok-barang',App\Http\Controllers\Admin\StokBarangController::class);
@@ -48,12 +47,23 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('pesanan-proses/{id}',[App\Http\Controllers\Admin\PesananDiprosesController::class,'selesai']);
     Route::get('pesanan-selesai',[App\Http\Controllers\Admin\PesananSelesaiController::class,'index']);
 
-    Route::get('laporan-penjualan',[App\Http\Controllers\Admin\LaporanPenjualanController::class,'index']);
-    Route::get('laporan-transaksi',[App\Http\Controllers\Admin\LaporanTransaksiController::class,'index']);
+
+
+
+
+});
+
+Route::middleware(['role:admin,pemilik toko'])->group(function () {
+    Route::get('dashboard',[App\Http\Controllers\Admin\DashboardController::class,'index']);
+
     Route::get('profile-admin',[App\Http\Controllers\Admin\ProfileController::class,'index']);
     Route::post('profile-admin',[App\Http\Controllers\Admin\ProfileController::class,'update']);
     Route::post('profile-admin/password',[App\Http\Controllers\Admin\ProfileController::class,'password']);
+});
 
+Route::middleware(['role:pemilik toko'])->group(function () {
+    Route::get('laporan-penjualan',[App\Http\Controllers\Admin\LaporanPenjualanController::class,'index']);
+    Route::get('laporan-transaksi',[App\Http\Controllers\Admin\LaporanTransaksiController::class,'index']);
 
 });
 

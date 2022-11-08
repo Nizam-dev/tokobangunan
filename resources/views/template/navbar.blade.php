@@ -16,6 +16,7 @@
 
         <ul class="navbar-nav navbar-nav-right">
 
+            @if(auth()->user()->role == 'admin')
             <li class="nav-item dropdown">
                 <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#"
                     data-toggle="dropdown">
@@ -54,6 +55,7 @@
                     </h6>
                 </div>
             </li>
+            @endif
 
             <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown"

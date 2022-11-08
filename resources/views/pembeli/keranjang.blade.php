@@ -77,7 +77,7 @@
                                                 <td>{{$keranjang->barang->nama_barang}}</td>
                                                 <td>{{$keranjang->barang->status}}</td>
                                                 <td>@currency($keranjang->barang->harga)</td>
-                                                <td>{{$keranjang->jumlah}}</td>
+                                                <td>{{$keranjang->jumlah}} ( {{$keranjang->barang->satuan_barang}} )</td>
                                                 <td>@currency($keranjang->jumlah * $keranjang->barang->harga)</td>
                                                 <td> 
                                                     <a href="{{url('keranjang/hapus/'.$keranjang->id)}}" class="btn btn-sm btn-danger"><i class="fa fa-minus"></i></a>

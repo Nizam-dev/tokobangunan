@@ -116,6 +116,8 @@
                                                             Etimasi Ready {{$pesanan->etimasi_ready}}
                                                             <br>
                                                             Etimasi Dikirim {{$pesanan->etimasi_dikirim}}
+                                                            <br>
+                                                            Sisa Pembayaran @currency($pesanan->total - $pesanan->total_bayar)
                                                         @else
                                                             Barang akan dikirim secepatnya, 
                                                             <br>

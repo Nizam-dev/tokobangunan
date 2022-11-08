@@ -103,6 +103,12 @@
                                             <td colspan="4"> Total Pembayaran </td>
                                             <td>@currency($total)</td>
                                         </tr>
+                                        @if($keranjangs[0]->barang->status == "pre-order")
+                                        <tr class="bg-warning text-white">
+                                            <td colspan="4"> Minimal Pembayaran Pre-Order 40% </td>
+                                            <td>@currency($total * 40 / 100)</td>
+                                        </tr>
+                                        @endif
                                     </tbody>
                                 </table>
 
@@ -126,7 +132,7 @@
                                 </div>
 
                                 @if($keranjangs[0]->barang->status == "pre-order")
-                                    <p class="mt-2 text-danger">"Barang yang anda pesan adalah barang Pre-Order , setelah melakukan pemesanan toko kami akan memberitahu anda etimasi barang akan dikirim</p>
+                                    <p class="mt-2 text-danger">"Barang yang anda pesan adalah barang Pre-Order Anda wajib melakukan pembayaran / DP minimal 40 % atau lebih, setelah melakukan pemesanan toko kami akan memberitahu anda etimasi barang akan dikirim</p>
                                 @endif
 
                                 <button type="submit" class="btn btn-sm btn-success float-right">Pembayaran</button>
