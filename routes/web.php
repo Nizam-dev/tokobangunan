@@ -48,6 +48,11 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('pesanan-proses/{id}',[App\Http\Controllers\Admin\PesananDiprosesController::class,'selesai']);
     Route::get('pesanan-selesai',[App\Http\Controllers\Admin\PesananSelesaiController::class,'index']);
 
+    Route::get('laporan-penjualan',[App\Http\Controllers\Admin\LaporanPenjualanController::class,'index']);
+    Route::get('laporan-transaksi',[App\Http\Controllers\Admin\LaporanTransaksiController::class,'index']);
+    Route::get('profile-admin',[App\Http\Controllers\Admin\ProfileController::class,'index']);
+    Route::post('profile-admin',[App\Http\Controllers\Admin\ProfileController::class,'update']);
+    Route::post('profile-admin/password',[App\Http\Controllers\Admin\ProfileController::class,'password']);
 
 
 });
@@ -64,6 +69,11 @@ Route::middleware(['role:pembeli'])->group(function () {
     Route::post('pesanan/{id}',[App\Http\Controllers\Pembeli\PembayaranController::class,'unggah_pembayaran']);
 
     Route::get('histori-pesanan',[App\Http\Controllers\Pembeli\HistoryPesananController::class,'index']);
+
+    Route::get('profile',[App\Http\Controllers\Pembeli\ProfileController::class,'index']);
+    Route::post('profile',[App\Http\Controllers\Pembeli\ProfileController::class,'update']);
+    Route::post('profile/password',[App\Http\Controllers\Pembeli\ProfileController::class,'password']);
+
 
 
 });

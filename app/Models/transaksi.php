@@ -18,6 +18,13 @@ class transaksi extends Model
         'etimasi_dikirim',
     ];
 
+    public static function laporan_transaksi()
+    {
+        return transaksi::whereIn('status',['diproses','selesai'])
+        ->selectRaw("DATE_FORMAT(created_at, '%M %Y') bulan,sum(total) as total")
+        ->groupBy('bulan')->get();
+    }
+
     public function user(){
         return $this->belongsTo(User::class,'user_id');
     }

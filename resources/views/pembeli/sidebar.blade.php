@@ -12,6 +12,7 @@
                 <li class="{{request()->is('pesanan') ? 'active' : ''}}" ><a href="{{url('pesanan')}}">Pesanan ({{$pesanan}}) </a></li>
                 <li class="{{request()->is('histori-pesanan') ? 'active' : ''}}" ><a href="{{url('histori-pesanan')}}">Histori Pemesanan</a></li>
                 <li class="{{request()->is('alamat') ? 'active' : ''}}" ><a href="{{url('alamat')}}">Alamat</a></li>
+                <li class="{{request()->is('profile') ? 'active' : ''}}" ><a href="{{url('profile')}}">Profile</a></li>
             </ul>
         </div>
     </div>

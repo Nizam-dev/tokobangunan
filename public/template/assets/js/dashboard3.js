@@ -1,3 +1,4 @@
+var barChart
 (function($) {
 
 	'use strict';
@@ -466,7 +467,7 @@
 			};
 			var barChartCanvas = $("#device-sales").get(0).getContext("2d");
 			// This will get the first returned node in the jQuery collection.
-			var barChart = new Chart(barChartCanvas, {
+			barChartx = new Chart(barChartCanvas, {
 				type: 'bar',
 				data: deviceSalesData,
 				options: deviceSalesOptions

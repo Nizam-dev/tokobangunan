@@ -71,7 +71,7 @@
                     <div class="p-2">
 
                         <a class="dropdown-item py-1 d-flex align-items-center justify-content-between"
-                            href="javascript:void(0)">
+                            href="{{url('profile-admin')}}">
                             <span>Profil</span>
                             <i class="mdi mdi-settings"></i>
                         </a>

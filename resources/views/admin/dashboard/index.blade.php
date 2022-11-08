@@ -47,7 +47,23 @@
 @endsection
 
 @section('js')
-<script src="{{asset('public/template/assets/js/dashboard3.js')}}"></script>
+<script src="{{asset('public/template/assets/js/dashboard_penjualan.js')}}"></script>
+
+<script>
+    $(document).ready(()=>{
+        var penjualan = @json($penjualan);
+        var bulan=[];
+        var total=[];
+        penjualan.map((data)=>{
+            bulan.push(data.bulan);
+            total.push(data.total)
+        })
+        barChartx.data.datasets[0].data = total;
+        barChartx.data.labels = bulan;
+        barChartx.update();
+    })
+    
+</script>
 
 
 
