@@ -70,6 +70,13 @@
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
+
+        <li class="nav-item {{request()->is('/rekapitulasi/*') ? 'active' : '' }}">
+            <a class="nav-link" href="{{url('rekapitulasi')}}">
+                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                <span class="menu-title">Rekapitulasi</span>
+            </a>
+        </li>
         
         <li
             class="nav-item {{request()->is('laporan-penjualan') || request()->is('laporan-transaksi')  ? 'active' : '' }} ">
