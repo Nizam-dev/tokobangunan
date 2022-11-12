@@ -26,6 +26,12 @@ class transaksi extends Model
         ->groupBy('bulan')->get();
     }
 
+    public static function  rekapitulasi()
+    {
+        return transaksi::whereIn('status',['diproses','selesai'])
+        ->with('pesanan')->get();
+    }
+
     public function user(){
         return $this->belongsTo(User::class,'user_id');
     }

@@ -47,9 +47,7 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('pesanan-proses/{id}',[App\Http\Controllers\Admin\PesananDiprosesController::class,'selesai']);
     Route::get('pesanan-selesai',[App\Http\Controllers\Admin\PesananSelesaiController::class,'index']);
 
-
-
-
+    Route::get('rekapitulasi',[App\Http\Controllers\Admin\RekapitulasiController::class,'index']);
 
 });
 
