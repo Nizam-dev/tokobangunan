@@ -56,13 +56,16 @@ Route::middleware(['role:admin,pemilik toko'])->group(function () {
     Route::get('profile-admin',[App\Http\Controllers\Admin\ProfileController::class,'index']);
     Route::post('profile-admin',[App\Http\Controllers\Admin\ProfileController::class,'update']);
     Route::post('profile-admin/password',[App\Http\Controllers\Admin\ProfileController::class,'password']);
-    Route::get('rekapitulasi',[App\Http\Controllers\Admin\RekapitulasiController::class,'index']);
+
+    Route::get('laporan-penjualan',[App\Http\Controllers\Admin\LaporanPenjualanController::class,'index']);
+    Route::get('laporan-transaksi',[App\Http\Controllers\Admin\LaporanTransaksiController::class,'index']);
 
 });
 
 Route::middleware(['role:pemilik toko'])->group(function () {
-    Route::get('laporan-penjualan',[App\Http\Controllers\Admin\LaporanPenjualanController::class,'index']);
-    Route::get('laporan-transaksi',[App\Http\Controllers\Admin\LaporanTransaksiController::class,'index']);
+
+    Route::get('rekapitulasi',[App\Http\Controllers\Admin\RekapitulasiController::class,'index']);
+
 
 });
 

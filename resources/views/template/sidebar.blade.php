@@ -47,11 +47,20 @@
         </li>
 
 
-        <li class="nav-item {{request()->is('/rekapitulasi/*') ? 'active' : '' }}">
-            <a class="nav-link" href="{{url('rekapitulasi')}}">
+        <li
+            class="nav-item {{request()->is('laporan-penjualan') || request()->is('laporan-transaksi')  ? 'active' : '' }} ">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic4" aria-expanded="false"
+                aria-controls="ui-basic4">
                 <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
-                <span class="menu-title">Rekapitulasi</span>
+                <span class="menu-title">Laporan</span>
+                <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="ui-basic4">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{url('laporan-penjualan')}}">Penjualan</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{url('laporan-transaksi')}}">Transaksi</a></li>
+                </ul>
+            </div>
         </li>
 
 
