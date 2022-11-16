@@ -58,7 +58,13 @@ Route::middleware(['role:admin,pemilik toko'])->group(function () {
     Route::post('profile-admin/password',[App\Http\Controllers\Admin\ProfileController::class,'password']);
 
     Route::get('laporan-penjualan',[App\Http\Controllers\Admin\LaporanPenjualanController::class,'index']);
+    Route::get('laporan-barang',[App\Http\Controllers\Admin\LaporanPenjualanController::class,'barang']);
+    Route::get('laporan-user',[App\Http\Controllers\Admin\LaporanPenjualanController::class,'user']);
+    Route::get('laporan-laba',[App\Http\Controllers\Admin\LaporanPenjualanController::class,'laba']);
     Route::get('laporan-transaksi',[App\Http\Controllers\Admin\LaporanTransaksiController::class,'index']);
+
+    Route::post('tambah-modal',[App\Http\Controllers\Admin\LaporanPenjualanController::class,'tambah_modal']);
+
 
 });
 

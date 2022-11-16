@@ -34,7 +34,7 @@ class pesanan extends Model
         ->select("barangs.nama_barang")
         ->selectRaw("DATE_FORMAT(pesanans.created_at, '%M %Y') bulan,SUM(pesanans.jumlah) as total")
         ->whereIn('transaksis.status',['diproses','selesai'])
-        ->groupBy('bulan','nama_barang','total')
+        ->groupBy('bulan','nama_barang')
         ->get();
     }
 
