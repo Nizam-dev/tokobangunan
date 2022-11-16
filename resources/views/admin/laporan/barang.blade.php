@@ -29,7 +29,7 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$data->nama_barang}}</td>
                             <td>{{ $data->status == 'tersedia' ? $data->jumlah_stok : 'Barang Pre-Order' }}</td>
-                            <td>{{$data->jumlah_pesanan}}</td>
+                            <td>{{$data->jumlah_pesanan == null ? 0 : $data->jumlah_pesanan }}</td>
                         </tr>
                         @endforeach
 
