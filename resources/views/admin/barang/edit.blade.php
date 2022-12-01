@@ -26,7 +26,8 @@
 
 
                 <x-input-form name="satuan_barang" type="text" label="Satuan Barang" value="{{$data->satuan_barang}}" />
-                <x-input-form name="harga" type="number" label="Harga" value="{{$data->harga}}" />
+                <x-input-form name="harga_ambil" type="number" label="Harga Ambil" value="{{$data->harga_ambil}}" />
+                <x-input-form name="harga" type="number" label="Harga Jual" value="{{$data->harga}}" />
 
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Status</label>

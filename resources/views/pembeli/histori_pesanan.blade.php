@@ -87,7 +87,7 @@
                                                             @endforeach
                                                         </ul>
                                                     </td>
-                                                    <td>@currency($pesanan->total)</td>
+                                                    <td>@currency($pesanan->total+$pesanan->kode_unik)</td>
                                                 </tr>
                                                 @empty
                                                 <tr>

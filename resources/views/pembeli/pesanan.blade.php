@@ -85,7 +85,7 @@
                                                     @endforeach
                                                     </ul>
                                                 </td>
-                                                <td>@currency($pesanan->total)</td>
+                                                <td>@currency($pesanan->total+$pesanan->kode_unik)</td>
                                                 <td>
                                                     @if($pesanan->status == "pending")
                                                     <span class="badge badge-warning py-2 px-2">

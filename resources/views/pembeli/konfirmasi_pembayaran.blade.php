@@ -101,14 +101,17 @@
                                         @endforeach
                                         <tr class="bg-primary text-white">
                                             <td colspan="4"> Total Pembayaran </td>
-                                            <td>@currency($total)</td>
+                                            <td>@currency($total+$kode_unik)</td>
                                         </tr>
                                         @if($keranjangs[0]->barang->status == "pre-order")
                                         <tr class="bg-warning text-white">
                                             <td colspan="4"> Minimal Pembayaran Pre-Order 40% </td>
-                                            <td>@currency($total * 40 / 100)</td>
+                                            <td>@currency($total * 40 / 100 + $kode_unik)</td>
                                         </tr>
                                         @endif
+                                        <tr>
+                                            <td colspan="5"> Lakukan Pembayaran Sesuai Total Pembayaran diatas untuk mempermudah transaksi. </td>
+                                        </tr>
                                     </tbody>
                                 </table>
 
@@ -128,6 +131,8 @@
                                             <option  value="{{$bank->id}}">{{$bank->nama_bank}}</option>
                                         @endforeach
                                     </select>
+
+                                    <input type="number" name="kode_unik" value="{{$kode_unik}}" class="d-none">
                               
                                 </div>
 

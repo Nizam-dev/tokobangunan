@@ -47,10 +47,10 @@
                                     </ul>
                                 </td>
                                 <td>
-                                  @currency($data->total)
+                                  @currency($data->total+ $data->kode_unik)
                                   <br>
                                   @if($data->pesanan[0]->barang->status == "pre-order")
-                                  <span class="badge badge-warning">Minimal DP : @currency($data->total * 40/100)</span>
+                                  <span class="badge badge-warning">Minimal DP : @currency($data->total * 40/100 + $data->kode_unik)</span>
                                   @endif
                                 </td>
                                 <td>

@@ -25,7 +25,8 @@
 
 
                 <x-input-form name="satuan_barang" type="text" label="Satuan Barang" value="{{old('satuan_barang')}}" />
-                <x-input-form name="harga" type="number" label="Harga" />
+                <x-input-form name="harga_ambil" type="number" label="Harga Ambil" />
+                <x-input-form name="harga" type="number" label="Harga Jual" />
 
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Status</label>

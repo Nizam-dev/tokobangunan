@@ -42,8 +42,9 @@ class keranjangController extends Controller
         if(!$alamat){
             return redirect("alamat")->with("failed","Harap isi alamat terlebih dahulu");
         }
+        $kode_unik = $this->genrateKodeUnik(keranjang::total_pembayaran(auth()->user()->id)->total_harga);
 
-        return view("pembeli.konfirmasi_pembayaran",compact('keranjangs','pembayarans','banks'));
+        return view("pembeli.konfirmasi_pembayaran",compact('keranjangs','pembayarans','banks','kode_unik'));
     }
 
     public function pembayaran(Request $request)
@@ -53,6 +54,7 @@ class keranjangController extends Controller
         ]);
         $transaksi = transaksi::create([
             "kode_transaksi"=>$this->genrateKodeTransaksi(),
+            "kode_unik"=>$request->kode_unik,
             "status"=>"pending",
             "total"=>keranjang::total_pembayaran(auth()->user()->id)->total_harga,
             "user_id"=>auth()->user()->id
@@ -80,6 +82,15 @@ class keranjangController extends Controller
         do {
             $code = strtoupper(Str::random(6));
         } while (transaksi::where("kode_transaksi", "=", $code)->first());
+
+        return $code;
+    }
+
+    public function genrateKodeUnik($harga)
+    {
+        do {
+            $code = rand(2,250);
+        } while (transaksi::where("kode_unik", "=", $code)->where("total", "=", $harga)->first());
 
         return $code;
     }

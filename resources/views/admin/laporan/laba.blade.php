@@ -9,7 +9,7 @@
     <div class="card">
         <div class="card-header">
             <h4 class="card-title">Laporan Pendapatan
-                <button class="btn btn-primary float-right" onClick="tambah_modal()">Tambah Modal</button>
+                <!-- <button class="btn btn-primary float-right" onClick="tambah_modal()">Tambah Modal</button>x -->
             </h4>
         </div>
 
@@ -28,13 +28,13 @@
 
                         @foreach($datas as $data)
                         <tr>
-                            <td>{{$data->bulan_modal}}</td>
-                            <td>@currency($data->jumlah_modal)</td>
-                            <td>@currency($data->pendapatan)</td>
+                            <td>{{$data["bulan"]}}</td>
+                            <td>@currency($data["modal"])</td>
+                            <td>@currency($data["pendapatan"])</td>
                             <td>
                                 <badge
-                                    class="badge-{{$data->pendapatan < $data->jumlah_modal ? 'danger' : 'success' }} badge badge-pill">
-                                    @currency($data->pendapatan - $data->jumlah_modal)</badge>
+                                    class="badge-{{$data['pendapatan'] < $data['modal'] ? 'danger' : 'success' }} badge badge-pill">
+                                    @currency($data['pendapatan'] - $data['modal'])</badge>
                             </td>
                         </tr>
                         @endforeach
@@ -53,7 +53,7 @@
                 <tbody>
                     <tr>
                         <th scope="row">Total Modal</th>
-                        <td>@currency($datas->sum('jumlah_modal'))</td>
+                        <td>@currency($datas->sum('modal'))</td>
                     </tr>
                     <tr>
                         <th scope="row">Total Pendapatan</th>
@@ -61,7 +61,7 @@
                     </tr>
                     <tr>
                         <th scope="row">Total Keuntungan</th>
-                        <td>@currency($datas->sum('pendapatan') - $datas->sum('jumlah_modal') )</td>
+                        <td>@currency($datas->sum('pendapatan') - $datas->sum('modal') )</td>
                     </tr>
                 </tbody>
             </table>

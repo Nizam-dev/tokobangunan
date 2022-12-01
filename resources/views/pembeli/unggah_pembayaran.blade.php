@@ -55,12 +55,12 @@
                                         </tr>
                                         <tr class="bg-primary text-white">
                                             <td>Total Pembayaran</td>
-                                            <td>: @currency($transaksi->total)</td>
+                                            <td>: @currency($transaksi->total+$transaksi->kode_unik)</td>
                                         </tr>
                                         @if($transaksi->pesanan[0]->barang->status == "pre-order")
                                         <tr class="bg-warning text-white">
                                             <td> Minimal Pembayaran Pre-Order 40% </td>
-                                            <td>: @currency($transaksi->total * 40 / 100)</td>
+                                            <td>: @currency($transaksi->total * 40 / 100 +$transaksi->kode_unik)</td>
                                         </tr>
                                         @endif
 
