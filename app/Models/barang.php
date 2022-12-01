@@ -41,6 +41,12 @@ class barang extends Model
         return $this->hasMany(pesanan::class);
     }
 
+    public function pesanan_terjual()
+    {
+        return $this->hasMany(pesanan::class)->join('transaksis','transaksis.id','pesanans.transaksi_id')
+        ->select(DB::raw("SUM(pesanans.jumlah) as jumlah_terjual"));
+    }
+
     public function stok_barang()
     {
         return $this->hasMany(stok_barang::class);

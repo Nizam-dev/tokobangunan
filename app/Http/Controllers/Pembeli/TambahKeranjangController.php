@@ -24,7 +24,7 @@ class TambahKeranjangController extends Controller
         // Cek Stok Barang
         $barang = barang::find($request->barang_id);
         $jumlah_permintaan = $keranjang ? $keranjang->jumlah +  $request->jumlah : $request->jumlah;
-        if( $jumlah_permintaan > $barang->jumlah_barang && $barang->status == "tersedia"){
+        if( $jumlah_permintaan > ($barang->jumlah_barang - $barang->pesanan_terjual[0]->jumlah_terjual) && $barang->status == "tersedia"){
             return redirect()->back()->with("failed","Stok Barang tidak cukup");
         }
 

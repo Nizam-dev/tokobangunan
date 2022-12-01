@@ -27,7 +27,7 @@ Route::post('register',[App\Http\Controllers\RegisterController::class,'register
 
 
 
-Auth::routes(['login'=>false,'register'=>false]);
+Auth::routes(['login'=>false,'register'=>false,'verify' => true]);
 
 
 
@@ -97,4 +97,6 @@ Route::middleware(['role:pembeli'])->group(function () {
 });
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', function () {
+    return redirect('/');
+})->name('home');

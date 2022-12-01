@@ -40,6 +40,7 @@
                
      
                   <div class="text-center mt-4 font-weight-light"> Belum punya akun? <a href="{{url('register')}}" class="text-primary">Daftar</a>
+                  <div class="text-center mt-4 font-weight-light"> Lupa Password ? <a href="{{url('password/reset')}}" class="text-primary">Atur Ulang Password</a>
                   </div>
                 </form>
               </div>

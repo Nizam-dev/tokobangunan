@@ -14,6 +14,10 @@ use Illuminate\Support\Str;
 
 class keranjangController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth','verified']);
+    }
     public function index()
     {
         $keranjangs = keranjang::where('user_id',auth()->user()->id)->get();

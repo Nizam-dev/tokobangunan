@@ -67,7 +67,7 @@
 					<div class="product_price mt-2">@currency($barang->harga)</div>
 					<div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
 						<div class="col-md-12 px-0">
-							<span>Stok : {{ $barang->status == "pre-order" ? "-" : $barang->jumlah_barang}}</span>
+							<span>Stok : {{ $barang->status == "pre-order" ? "-" : $barang->jumlah_barang - $barang->pesanan_terjual[0]->jumlah_terjual}}</span>
 							<br>
 							<span>Satuan : {{$barang->satuan_barang}}</span>
 
