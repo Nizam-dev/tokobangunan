@@ -45,7 +45,7 @@ class barang extends Model
     public function pesanan_terjual()
     {
         return $this->hasMany(pesanan::class)->join('transaksis','transaksis.id','pesanans.transaksi_id')
-        ->whereIn('transaksis.status',['pending','diproses','selesai'])
+        ->whereIn('transaksis.status',['pending','pembayaran','diproses','selesai'])
         ->select(DB::raw("SUM(pesanans.jumlah) as jumlah_terjual"));
     }
 
